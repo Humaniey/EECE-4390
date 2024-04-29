@@ -24,17 +24,30 @@ string encodeNRZI(string input) {
     bool state = 0;
     for(unsigned long i = 0; i < input.length(); i++) {
         if (input[i] == '1')
-            state = state;
+            state = !state;
         if (state)
             output += "+V|";
         else
-            output += "-V|"
-        }
+            output += "-V|";
+    }
+    
     return output;        
 }
 
 string encodeBAMI(string input) {
-    return input;
+    string output = "|";
+    bool state = 0;
+    for (unsigned long i = 0; i < input.length(); i++) {
+        if (input[i] == '0')
+            output += "0|";
+        else if (input[i] == '1')
+            state = !state;
+        if (state)
+            output += "+V|";
+        else
+            output += "-V|";
+    }
+    return output;
 }
 
 string encodeManchester(string input) {

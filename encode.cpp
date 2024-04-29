@@ -120,7 +120,8 @@ int main(int argc, char* argv[]) {
     }
 
     // Route encoding
-    string outputFileName;
+    string output;
+    string outputFileName = "OUTPUT";
     cout << "Using encoding ";
     switch(encoding) {
         case 0: 
@@ -156,7 +157,7 @@ int main(int argc, char* argv[]) {
 
     // Write result to output file
     ofstream ofs;
-    ofs.open(output);
+    ofs.open(outputFileName);
     ofs << output;
     ofs.close();
 

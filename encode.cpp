@@ -39,7 +39,7 @@ string encodeBAMI(string input) {
     bool state = 0;
     for (unsigned long i = 0; i < input.length(); i++) {
         if (input[i] == '0')
-            output += "0|";
+            output += "0V|";
         else if (input[i] == '1') {
             state = !state;
             if (state)

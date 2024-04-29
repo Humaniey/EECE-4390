@@ -13,16 +13,34 @@ string encodeNRZL(string input) {
     for(unsigned long i = 0; i < input.length(); i++) {
         c = input[i];
         if(c == '1')
-            output += "+V|";
-        else if(c == '0')
             output += "-V|";
+        else if(c == '0')
+            output += "+V|";
     }
 
     return output;
 }
 
 string encodeNRZI(string input) {
-    return input;
+    string output = "|";
+    bool state = 0;
+    char c;
+    for(unsigned long i = 0; i < input.length(); i++) {
+        c = input[i];
+        if (c == '1' && state = 0) {
+            output += "+V|";
+            state = 1;
+                }
+        else if (c == '1' && state = 1) {                                     m
+            output += "-V";
+            state = 0;
+                }
+        else if (c == '0' && state = 0)
+            output += "-V";
+        else if (c == '0' && state = 1)
+            output += "+V";
+        }
+    return output;        
 }
 
 string encodeBAMI(string input) {

@@ -63,7 +63,24 @@ string encodeManchester(string input) {
 }
 
 string encodeDManchester(string input) {
-    return input;
+    string output = "|";
+    bool state = 0;
+    for (unsigned long i = 0; i < input.length(); i++) {
+        if (input[i] == '1') {
+                state = !state;
+            if (state)
+                output += "-V+V|";
+            else
+                output += "+V-V|";
+            }
+        else if (input[i] == '0') {
+            if (state)
+                output += "-V+V|";
+            else
+                output += "+V-V|";
+            }
+    }
+    return output;
 }
 
 void printEncodings() {

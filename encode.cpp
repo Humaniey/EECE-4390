@@ -52,7 +52,14 @@ string encodeBAMI(string input) {
 }
 
 string encodeManchester(string input) {
-    return input;
+    string output = "|";
+    for(unsigned long i = 0; i < input.length(); i++) {
+        if(input[i] == '1')
+            output += "-V+V|";
+        else if(input[i] == '0')
+            output += "+V-V|";
+    }
+    return output;
 }
 
 string encodeDManchester(string input) {

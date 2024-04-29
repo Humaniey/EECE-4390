@@ -120,33 +120,33 @@ int main(int argc, char* argv[]) {
     }
 
     // Route encoding
-    string output;
+    string outputFileName;
     cout << "Using encoding ";
     switch(encoding) {
         case 0: 
             cout << "NRZ-L" << endl; 
             output = encodeNRZL(input);
-            output += ".NRZ-L";
+            outputFileName += ".NRZ-L";
             break;
         case 1: 
             cout << "NRZ-I" << endl;
             output = encodeNRZI(input);
-            output += ".NRZ-I";
+            outputFileName += ".NRZ-I";
             break;
         case 2: 
             cout << "B-AMI" << endl; 
             output = encodeBAMI(input);
-            output += ".B-AMI";
+            outputFileName += ".B-AMI";
             break;
         case 3: 
             cout << "Manchester" << endl; 
             output = encodeManchester(input);
-            output += ".Manchester";
+            outputFileName += ".Manchester";
             break;
         case 4: 
             cout << "D-Manchester" << endl; 
             output = encodeDManchester(input);
-            output += ".D-Manchester";
+            outputFileName += ".D-Manchester";
             break;
         default:
             cout << "Error: encoding scheme not recognized." << endl;

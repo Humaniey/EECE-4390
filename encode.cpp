@@ -126,22 +126,27 @@ int main(int argc, char* argv[]) {
         case 0: 
             cout << "NRZ-L" << endl; 
             output = encodeNRZL(input);
+            output += ".NRZ-L";
             break;
         case 1: 
             cout << "NRZ-I" << endl;
             output = encodeNRZI(input);
+            output += ".NRZ-I";
             break;
         case 2: 
             cout << "B-AMI" << endl; 
             output = encodeBAMI(input);
+            output += ".B-AMI";
             break;
         case 3: 
             cout << "Manchester" << endl; 
             output = encodeManchester(input);
+            output += ".Manchester";
             break;
         case 4: 
             cout << "D-Manchester" << endl; 
             output = encodeDManchester(input);
+            output += ".D-Manchester";
             break;
         default:
             cout << "Error: encoding scheme not recognized." << endl;
@@ -151,7 +156,7 @@ int main(int argc, char* argv[]) {
 
     // Write result to output file
     ofstream ofs;
-    ofs.open("OUTPUT.SIGNAL");
+    ofs.open(output);
     ofs << output;
     ofs.close();
 

@@ -40,12 +40,13 @@ string encodeBAMI(string input) {
     for (unsigned long i = 0; i < input.length(); i++) {
         if (input[i] == '0')
             output += "0|";
-        else if (input[i] == '1')
+        else if (input[i] == '1') {
             state = !state;
-        if (state)
-            output += "+V|";
-        else
-            output += "-V|";
+            if (state)
+                output += "+V|";
+            else
+                output += "-V|";
+        }
     }
     return output;
 }

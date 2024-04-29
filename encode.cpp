@@ -9,12 +9,10 @@ using namespace std;
 // and binary 0 to negative voltage
 string encodeNRZL(string input) {
     string output = "|";
-    char c;
     for(unsigned long i = 0; i < input.length(); i++) {
-        c = input[i];
-        if(c == '1')
+        if(input[i] == '1')
             output += "-V|";
-        else if(c == '0')
+        else if(input[i] == '0')
             output += "+V|";
     }
 
@@ -24,21 +22,13 @@ string encodeNRZL(string input) {
 string encodeNRZI(string input) {
     string output = "|";
     bool state = 0;
-    char c;
     for(unsigned long i = 0; i < input.length(); i++) {
-        c = input[i];
-        if (c == '1' && state = 0) {
+        if (input[i] == '1')
+            state = state;
+        if (state)
             output += "+V|";
-            state = 1;
-                }
-        else if (c == '1' && state = 1) {                                     m
-            output += "-V";
-            state = 0;
-                }
-        else if (c == '0' && state = 0)
-            output += "-V";
-        else if (c == '0' && state = 1)
-            output += "+V";
+        else
+            output += "-V|"
         }
     return output;        
 }
